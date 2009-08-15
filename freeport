@@ -1,0 +1,22 @@
+#!/usr/bin/python
+import sys
+import lib.edit as edit
+import lib.act as act
+
+# looks for all established connections on a given port and kills the processes
+# first argument must be the portnumber
+
+
+
+# get process numbers of processes with established connections on this port:
+processlist = act.established_by_port(sys.argv[1])
+#print processlist
+
+# cut out the process numbers:
+processnumbers = edit.cut_bytes(processlist,9,13)
+#print processnumbers
+
+# kill all these processes:
+processes_left=act.kill(processnumbers)
+
+ 
