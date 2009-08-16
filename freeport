@@ -14,9 +14,9 @@ processlist = act.established_by_port(sys.argv[1])
 
 # cut out the process numbers:
 processnumbers = edit.cut_bytes(processlist,9,13)
-#print processnumbers
 
 # kill all these processes:
+print "killing: %s ..." % processnumbers
 processes_left=act.kill(processnumbers)
-
+print "... assumed done." # some hung processes would need -9 or sudo, todo
  
